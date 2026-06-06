@@ -509,8 +509,7 @@
       '',
       'Please confirm final size, finish, accessories, noise level and pressure drop.'
     ];
-    navigator.clipboard.writeText(lines.join('
-'));
+    navigator.clipboard.writeText(lines.join('\n'));
   }
 
   function copyTopRecommendation() {
