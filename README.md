@@ -1,49 +1,33 @@
-# Brooke Air Product Selector V2
+# Brooke Air Product Selector - Static V5
 
-Static HTML prototype designed for GitHub Pages hosting.
+Customer-facing static HTML prototype for GitHub Pages.
 
-## What is included
+## What changed in V5
 
-- Product selector based on engineering intent
-- Product recommendations with reasons and warnings
-- Product configurator using the grille compatibility matrix
-- Product library browser
-- Engineering rules, common mistakes and data gaps view
-- Exportable plain-text selection summary
+- Score is now shown as a confidence band:
+  - Green: 75% and above
+  - Amber: 50-74%
+  - Red: below 50%
+- Recommendation cards now include customer-facing selection notes.
+- Each result expands to show selection detail: product family, category, function, mounting, variants, accessories, size range and performance source.
+- Top recommendation opens by default.
+- Each card includes a copyable enquiry text button.
+- Hard-rule matching from V4 remains in place.
 
 ## Files
 
-- `index.html` – main page
-- `style.css` – styling
-- `app.js` – application logic
-- `data.js` – structured product, rules and compatibility data
-- `.nojekyll` – allows GitHub Pages to serve files without Jekyll processing
+Upload these files to the root of the GitHub repository:
 
-## Run locally
+- index.html
+- style.css
+- app.js
+- data.js
+- .nojekyll
 
-Open `index.html` in a modern browser.
+## GitHub Pages
 
-## Host on GitHub Pages
+Settings > Pages > Deploy from branch > main > /root.
 
-1. Create a GitHub repository, for example `brookeair-product-selector`.
-2. Upload the files in this folder to the repository root.
-3. Go to **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select the `main` branch and `/root` folder.
-6. Save and wait for GitHub Pages to publish.
+## Note
 
-## Current limitations
-
-- This is a static app, so there is no login, database or saved history.
-- Technical selections still require datasheet review before issue.
-- 4-way diffuser is included as a V1 placeholder and needs datasheet/performance data.
-- Compatibility validation currently uses the grille compatibility matrix only.
-- Nomogram data has been treated as approximate where converted into visible points.
-
-## Suggested next build steps
-
-1. Add the missing 4-way diffuser data.
-2. Expand compatibility validation beyond grilles.
-3. Add admin-friendly JSON editing or CSV import.
-4. Add specification text generation.
-5. Add print/PDF output.
+This is still a static prototype. Final technical selections must be checked against the latest Brooke Air datasheets before being issued externally.
