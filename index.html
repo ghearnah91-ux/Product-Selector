@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brooke Air Product Selector V5</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Brooke Air Diffusion</p>
+      <h1>Product Selector V5</h1>
+      <p class="subtitle">Customer-facing static selector prototype with confidence bands, selection detail and configuration validation.</p>
+    </div>
+    <div class="header-actions">
+      <button id="resetBtn" class="secondary">Reset</button>
+      <button id="exportBtn">Export summary</button>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Application sections">
+    <button class="tab active" data-tab="selector">Selector</button>
+    <button class="tab" data-tab="configurator">Configurator</button>
+    <button class="tab" data-tab="library">Product library</button>
+    <button class="tab" data-tab="rules">Rules & gaps</button>
+  </nav>
+
+  <main>
+    <section id="selector" class="tab-panel active">
+      <section class="panel intro-panel">
+        <div>
+          <h2>Find a suitable product family</h2>
+          <p>Answer the basic engineering intent questions. The app recommends suitable product families using engineering intent, application rules, compatibility data and customer-facing selection notes.</p>
+        </div>
+        <div class="status-pill" id="dataStatus"></div>
+      </section>
+
+      <div class="layout">
+        <aside class="panel controls-panel">
+          <h2>Selection inputs</h2>
+          <div id="questionContainer" class="question-list"></div>
+          <label class="field-label" for="keywordInput">Keyword search</label>
+          <input id="keywordInput" type="search" placeholder="e.g. hotel, ceiling, long throw" />
+          <label class="field-label" for="familyFilter">Product family</label>
+          <select id="familyFilter"><option value="">All families</option></select>
+        </aside>
+
+        <section class="panel results-panel">
+          <div class="results-header">
+            <div>
+              <h2>Recommendations</h2>
+              <p id="resultCount"></p>
+            </div>
+            <button id="copyTopBtn" class="secondary">Copy top recommendation</button>
+          </div>
+          <div id="recommendations" class="cards"></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="configurator" class="tab-panel">
+      <section class="panel intro-panel">
+        <div>
+          <h2>Validate product configuration</h2>
+          <p>Uses the grille compatibility matrix where available. Select a grille type and check controls, frames, fixings and finishes.</p>
+        </div>
+      </section>
+      <div class="layout two-col">
+        <aside class="panel controls-panel">
+          <h2>Configuration</h2>
+          <label class="field-label" for="compatProduct">Product</label>
+          <select id="compatProduct"></select>
+          <label class="field-label" for="compatVariant">Product type / variant</label>
+          <select id="compatVariant"></select>
+          <p id="compatVariantNote" class="hint"></p>
+          <label class="field-label" for="compatGroup">Option group</label>
+          <select id="compatGroup"></select>
+          <label class="field-label" for="compatOption">Option</label>
+          <select id="compatOption"></select>
+          <div id="compatResult" class="compat-result"></div>
+        </aside>
+        <section class="panel results-panel">
+          <h2>Available options</h2>
+          <div id="compatTable" class="compat-table"></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="library" class="tab-panel">
+      <section class="panel intro-panel">
+        <div>
+          <h2>Product library</h2>
+          <p>Browse the product dataset included in this static version.</p>
+        </div>
+        <input id="librarySearch" type="search" placeholder="Search product code, name or notes" />
+      </section>
+      <div id="libraryGrid" class="library-grid"></div>
+    </section>
+
+    <section id="rules" class="tab-panel">
+      <section class="panel intro-panel">
+        <div>
+          <h2>Rules, warnings and data gaps</h2>
+          <p>Review the logic currently driving the app. These are the items to refine before customer-facing use.</p>
+        </div>
+      </section>
+      <div class="layout two-col">
+        <section class="panel">
+          <h2>Engineering rules</h2>
+          <div id="rulesList" class="list-block"></div>
+        </section>
+        <section class="panel">
+          <h2>Common mistakes & gaps</h2>
+          <div id="mistakesList" class="list-block"></div>
+          <h3>Data gaps</h3>
+          <div id="gapsList" class="list-block"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Internal prototype. Technical selections must be checked against the latest Brooke Air datasheets before issue.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
